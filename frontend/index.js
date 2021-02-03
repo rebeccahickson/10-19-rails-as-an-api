@@ -2,9 +2,10 @@
 const list = document.getElementById('item-list')
 
 fetch('http://localhost:3000/items')
-    .then(function(r){
-        return r.json()
-    })
+    // .then(function(r){
+    //     return r.json()
+    // })   // this is the same as the .then on line 8
+    .then(r => r.json())
     .then(renderItems)
 
 
