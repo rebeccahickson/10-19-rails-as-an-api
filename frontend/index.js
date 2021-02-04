@@ -1,5 +1,10 @@
 // make a fetch request to the '/items' and display items on the DOM
 const list = document.getElementById('item-list')
+const form = document.getElementById('item-form')
+const priceInput = document.getElementById('item-price')
+const nameInput = document.getElementById('item-name')
+const descriptionInput = document.getElementById('item-description')
+
 
 fetch('http://localhost:3000/items')
     // .then(function(r){
@@ -11,15 +16,19 @@ fetch('http://localhost:3000/items')
 
 function renderItems(arg){
     const items = arg["data"]
-    const liElements = items.map(function(item){
-        const li = document.createElement('li')
-        li.innerText = `${item.attributes.name} - $${item.attributes.price}`
-        return li
+    items.forEach(element => {
+        renderItem(element)
     })
-    // debugger
-    liElements.forEach(element => {
-        list.appendChild(element)
-    });
-   
+}
 
+function renderItem(item){
+    const li = document.createElement('li')
+    li.innerHTML = `
+        <div>
+            $<span class="price">${item.attributes.price}</span>
+            <strong class="name">${item.attributes.name}</strong>:
+            <span class="description">${item.attributes.description}</span> 
+        </div
+    `
+    list.appendChild(li)
 }
