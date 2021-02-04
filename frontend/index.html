@@ -11,6 +11,17 @@
        <ul id="item-list">
        </ul>
 
+       <h3>Add a new Item:</h3>
+       <form id="item-form">
+           <label for="item-name">Name:</label>
+           <input type="text" name="name" id="item-name"><br><br>
+           <label for="item-description">Description:</label>
+           <input type="text" name="description" id="item-description"><br><br>
+           <label for="item-price">Price:</label>
+           <input type="number" name="price" id="item-price" min="0" step=".01"><br><br>
+           <input type="submit" value="Create">
+       </form>
+
     
        <script src="index.js" type="text/javascript"></script>
    </body>
